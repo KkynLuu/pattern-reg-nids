@@ -1,0 +1,5 @@
+,Train Time (s),Multiclass Accuracy,F1-Macro (Unweighted),F1-Weighted
+Gaussian Naive Bayes (Baseline 1),0.225,0.6408,0.2801,0.6788
+Logistic Regression (Baseline 2),14.46,0.8332,0.3908,0.8227
+Decision Tree (Improved 1),1.936,0.893,0.6173,0.8843
+Random Forest (Improved 2),1.859,0.8994,0.6092,0.8909

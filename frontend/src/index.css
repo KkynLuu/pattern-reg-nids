@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --duration-exit: 150ms;
+  --duration-enter: 220ms;
+  --duration-move: 350ms;
+  --slide-y-offset: 8px;
+}
+
+@layer base {
+  body {
+    @apply bg-[#F8FAFC] text-slate-900 font-sans;
+    background-image: 
+      radial-gradient(ellipse 80% 80% at 50% -20%, rgba(2, 132, 199, 0.07), rgba(255, 255, 255, 0)),
+      radial-gradient(circle at 100% 100%, rgba(225, 29, 72, 0.04), transparent 40%);
+  }
+}
+
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #0284C7;
+}
+
+.radar-grid {
+  background-size: 30px 30px;
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+}
+
+@keyframes vt-fade-out {
+  from { opacity: 1; transform: translateY(0); }
+  to { opacity: 0; transform: translateY(calc(var(--slide-y-offset) * -1)); }
+}
+
+@keyframes vt-fade-in {
+  from { opacity: 0; transform: translateY(var(--slide-y-offset)); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+::view-transition-old(page-content) {
+  animation: var(--duration-exit) cubic-bezier(0.4, 0, 1, 1) both vt-fade-out;
+}
+
+::view-transition-new(page-content) {
+  animation: var(--duration-enter) cubic-bezier(0, 0, 0.2, 1) 40ms both vt-fade-in;
+}
+
+::view-transition-group(persistent-header) {
+  animation: none;
+  z-index: 100;
+}
+
+::view-transition-old(persistent-header) {
+  display: none;
+}
+
+::view-transition-new(persistent-header) {
+  animation: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation-duration: 0s !important;
+    animation-delay: 0s !important;
+  }
+}

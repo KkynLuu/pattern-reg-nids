@@ -1,0 +1,11 @@
+Attack Class,Test Samples,GaussianNB Accuracy/Recall,LogisticRegression Accuracy/Recall,DecisionTree Accuracy/Recall,RandomForest Accuracy/Recall,RF Missed / Errors
+Benign,35804,0.9794,0.9995,0.9999,0.9999,3
+Exploits,8550,0.9848,0.9994,0.9995,1.0,0
+Fuzzers,6763,1.0,0.9999,1.0,1.0,0
+Generic,3930,0.9888,0.9995,1.0,0.9997,1
+Reconnaissance,3415,1.0,1.0,1.0,1.0,0
+DoS,1196,0.9866,0.9983,1.0,1.0,0
+Backdoor,932,0.9968,1.0,1.0,1.0,0
+Shellcode,476,1.0,0.9979,1.0,1.0,0
+Analysis,245,1.0,1.0,1.0,1.0,0
+Worms,32,1.0,1.0,1.0,1.0,0
